@@ -17,10 +17,12 @@
             <!-- 聊天消息将在这里显示 -->
         </div>
         
-        <!-- 输入框和发送按钮 -->
+        <!-- 输入框、发送按钮和上传图片按钮 -->
         <div id="chatControls" style="display: none;">
             <input type="text" id="messageInput" placeholder="输入消息...">
             <button onclick="sendMessage()">发送</button>
+            <input type="file" id="imageInput">
+            <button onclick="sendImage()">上传图片</button>
         </div>
     </div>
 
