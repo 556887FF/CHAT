@@ -4,57 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>简单聊天</title>
-<style>
-    /* CSS样式，用于布局和美化 */
-    body {
-        font-family: Arial, sans-serif;
-    }
-    .chat-container {
-        width: 80%;
-        margin: auto;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-        height: 300px;
-        overflow-y: scroll;
-    }
-    .chat-message {
-        margin-bottom: 10px;
-    }
-    #messageInput {
-        width: calc(100% - 80px);
-    }
-</style>
+<link rel="stylesheet" href="styles.css"> <!-- 引入样式表 -->
 </head>
 <body>
-    <div class="chat-container" id="chatContainer">
+    <div class="container">
+        <!-- 输入暱稱 -->
+        <input type="text" id="nicknameInput" placeholder="输入你的暱稱...">
+        <button onclick="setNickname()">确认</button>
+
         <!-- 聊天消息显示区域 -->
-    </div>
-    <div>
+        <div class="chat-container" id="chatContainer">
+            <!-- 聊天消息将在这里显示 -->
+        </div>
+        
         <!-- 输入框和发送按钮 -->
-        <input type="text" id="messageInput" placeholder="输入消息...">
-        <button onclick="sendMessage()">发送</button>
+        <div id="chatControls" style="display: none;">
+            <input type="text" id="messageInput" placeholder="输入消息...">
+            <button onclick="sendMessage()">发送</button>
+        </div>
     </div>
 
-    <script>
-        // JavaScript代码，用于实现聊天功能
-        function sendMessage() {
-            // 获取输入框的内容
-            var message = document.getElementById("messageInput").value;
-
-            // 创建新的聊天消息元素并添加到聊天容器中
-            var chatContainer = document.getElementById("chatContainer");
-            var messageElement = document.createElement("div");
-            messageElement.classList.add("chat-message");
-            messageElement.textContent = message;
-            chatContainer.appendChild(messageElement);
-
-            // 清空输入框内容
-            document.getElementById("messageInput").value = "";
-
-            // 滚动到底部，显示最新消息
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-    </script>
+    <script src="script.js"></script> <!-- 引入JavaScript文件 -->
 </body>
 </html>
