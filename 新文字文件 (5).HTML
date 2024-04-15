@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简单聊天</title>
+<style>
+    /* CSS样式，用于布局和美化 */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .chat-container {
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    .chat-message {
+        margin-bottom: 10px;
+    }
+    #messageInput {
+        width: calc(100% - 80px);
+    }
+</style>
+</head>
+<body>
+    <div class="chat-container" id="chatContainer">
+        <!-- 聊天消息显示区域 -->
+    </div>
+    <div>
+        <!-- 输入框和发送按钮 -->
+        <input type="text" id="messageInput" placeholder="输入消息...">
+        <button onclick="sendMessage()">发送</button>
+    </div>
+
+    <script>
+        // JavaScript代码，用于实现聊天功能
+        function sendMessage() {
+            // 获取输入框的内容
+            var message = document.getElementById("messageInput").value;
+
+            // 创建新的聊天消息元素并添加到聊天容器中
+            var chatContainer = document.getElementById("chatContainer");
+            var messageElement = document.createElement("div");
+            messageElement.classList.add("chat-message");
+            messageElement.textContent = message;
+            chatContainer.appendChild(messageElement);
+
+            // 清空输入框内容
+            document.getElementById("messageInput").value = "";
+
+            // 滚动到底部，显示最新消息
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>
