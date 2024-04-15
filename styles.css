@@ -1,30 +1,10 @@
-/* CSS样式，用于布局和美化 */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+/* 让聊天区域占满整个屏幕 */
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .chat-container {
-    height: 300px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.chat-message {
-    margin-bottom: 10px;
-}
-#messageInput {
-    width: calc(100% - 80px);
+    flex: 1; /* 让聊天区域占据剩余空间 */
+    overflow-y: auto; /* 使用滚动条 */
 }
