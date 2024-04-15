@@ -35,3 +35,23 @@ function sendMessage() {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 }
+
+// 上传图片
+function sendImage() {
+    var imageInput = document.getElementById("imageInput");
+    var chatContainer = document.getElementById("chatContainer");
+
+    var file = imageInput.files[0]; // 获取用户选择的文件
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var imageElement = document.createElement("img");
+            imageElement.src = e.target.result; // 设置图片的src为读取到的DataURL
+            chatContainer.appendChild(imageElement);
+
+            // 滚动到底部，显示最新图片
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        };
+        reader.readAsDataURL(file); // 读取文件并转换为DataURL格式
+    }
+}
